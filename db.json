@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "product": [
+    {
+      "name": "Iphone X",
+      "price": "250 $",
+      "id": 1,
+      "img": "https://cdn.dxomark.com/wp-content/uploads/2018/07/apple_iphonex-1024x768.jpg"
+    },
+    {
+      "name": "Iphone 11",
+      "price": "400 $",
+      "id": 2,
+      "img": "https://ipixel.ru/upload/iblock/d61/qnrcmmny18ct10b1786y5atb69322q80.jpg"
+    },
+    {
+      "name": "Iphone 12",
+      "price": "600 $",
+      "id": 3,
+      "img": "https://cdn.dxomark.com/wp-content/uploads/medias/post-62960/iPhone-12-Hero.png"
+    },
+    {
+      "name": "Iphone X",
+      "price": "250 $",
+      "id": 4,
+      "img": "https://cdn.dxomark.com/wp-content/uploads/2018/07/apple_iphonex-1024x768.jpg"
+    },
+    {
+      "name": "Iphone 11",
+      "price": "400 $",
+      "id": 5,
+      "img": "https://ipixel.ru/upload/iblock/d61/qnrcmmny18ct10b1786y5atb69322q80.jpg"
+    },
+    {
+      "name": "Iphone 12",
+      "price": "600 $",
+      "id": 6,
+      "img": "https://cdn.dxomark.com/wp-content/uploads/medias/post-62960/iPhone-12-Hero.png"
+    }
+  ]
+}
