@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useContext, useEffect } from 'react';
+import { useContext,useEffect } from 'react';
 import { productContext } from '../../Context/ProductContextProvider';
 import { Container } from '@mui/system';
 import OneProd from './OneProd';
@@ -11,7 +11,7 @@ export default function ProdCard(props) {
 
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [products]);
 
   return (
     <Container sx={{ paddingTop: 20 }} >
