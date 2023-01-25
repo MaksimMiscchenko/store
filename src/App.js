@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import ProdCard from './components/Card/ProdCard.jsx';
 import Home from './pages/Home';
 import ProductContextProvider from './Context/ProductContextProvider';
+import PagesRoute from './PagesRoute';
 
 
 function App() {
@@ -12,13 +13,7 @@ function App() {
     <div className="App">
       <ProductContextProvider>
         <Navbar />
-        <Home />
-        <ProdCard />
-        <BrowserRouter>
-          <Routes>
-            <Route path='/' element={<Home />} />
-          </Routes>
-        </BrowserRouter>
+        <PagesRoute/>
       </ProductContextProvider>
     </div>
   );

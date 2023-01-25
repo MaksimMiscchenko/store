@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { createContext, useReducer } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const productContext = createContext();
+
 
 const INIT_STATE = {
     products: [],
@@ -20,6 +22,7 @@ function reducer(state = INIT_STATE, action) {
 
 const ProductContextProvider = ({ children }) => {
     const API = "http://localhost:8000/product"
+    const navigate=useNavigate()
 
     const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
@@ -42,6 +45,17 @@ const ProductContextProvider = ({ children }) => {
         getProducts()
     }
 
+    const addProduct = async(newCard)=>{
+        if(newCard.name === "" || newCard.info === "" || newCard.price === ""){
+            alert('Заполните все поля')
+          }else{
+            let res = await axios.post(API,newCard)
+            navigate("/");
+          }
+        
+        
+    }
+
 
 
 
@@ -51,6 +65,7 @@ const ProductContextProvider = ({ children }) => {
                 products: state.products,
                 getProducts,
                 deleteProduct,
+                addProduct,
             }}
         >
             {children}

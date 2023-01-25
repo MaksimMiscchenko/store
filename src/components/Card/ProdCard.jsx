@@ -3,7 +3,7 @@ import { useContext,useEffect } from 'react';
 import { productContext } from '../../Context/ProductContextProvider';
 import { Container } from '@mui/system';
 import OneProd from './OneProd';
-import { Grid } from '@mui/material';
+import { createTheme, Grid} from '@mui/material';
 
 
 export default function ProdCard(props) {
@@ -11,15 +11,16 @@ export default function ProdCard(props) {
 
   useEffect(() => {
     getProducts();
-  }, [products]);
-
+  }, []);
+  
+ 
   return (
-    <Container sx={{ paddingTop: 20 }} >
-      <Grid container spacing={3} sx={{ flexGrow: 1 }}>
+    <Container sx={{ paddingTop: 20 }}  >
+      <Grid container spacing={3} sx={{ flexGrow: 1 } }>
         <Grid xs={2} justifyContent="flex-start">
           <p>dskadas</p>
         </Grid>
-        <Grid container xs={8} justifyContent="center">
+        <Grid container xs={10} justifyContent="flex-start" >
           {products ? (
             products.map((item) => (
               <OneProd item={item} key={item.id} />
@@ -28,7 +29,6 @@ export default function ProdCard(props) {
             <h2>Loading...</h2>
           )}
         </Grid>
-
       </Grid>
     </Container>
 

@@ -3,11 +3,12 @@ import { Container } from '@mui/system';
 import React from 'react';
 
 import StoreIcon from '@mui/icons-material/Store';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Navbar = () => {
-
+const navigate=useNavigate()
 
   return (
     <div>
@@ -17,7 +18,8 @@ const Navbar = () => {
             display: "flex",
             justifyContent: 'space-between'
           }}>
-            <IconButton color="inherit"  >
+            
+            <IconButton color="inherit"  onClick={()=>navigate("/")}>
               <StoreIcon fontSize="large" />
               <Typography variant='h5'>Store</Typography>
             </IconButton>

@@ -7,12 +7,14 @@ import DeleteForever from '@mui/icons-material/DeleteForever';
 import React from 'react';
 import { useContext } from 'react';
 import { productContext } from '../../Context/ProductContextProvider';
+import "./card.css"
 
 
 export default function OneProd({ item}) {
     const {deleteProduct} = useContext(productContext);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+    
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -22,12 +24,13 @@ export default function OneProd({ item}) {
 
     return (
         <div>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card className="bg-cart">
                 <CardMedia
                     component="img"
                     alt="green iguana"
-                    height="240"
+                    height="100%"
                     image={item.img}
+                    className="bg-cart"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
@@ -37,7 +40,7 @@ export default function OneProd({ item}) {
                         {item.price}
                     </Typography>
                 </CardContent>
-                <CardActions >
+                <CardActions  >
                 <IconButton
                 id="positioned-demo-button"
                 aria-controls={open ? 'positioned-demo-menu' : undefined}
@@ -56,6 +59,7 @@ export default function OneProd({ item}) {
                 onClose={handleClose}
                 aria-labelledby="positioned-demo-button"
                 placement="bottom-end"
+                className='bg-menu'
             >
                 <MenuItem onClick={handleClose}>
                     <ListItemDecorator>

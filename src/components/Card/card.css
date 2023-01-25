@@ -1,0 +1,12 @@
+.bg-cart{
+    width:300px;
+    margin: 30px 10px;
+    border-bottom: solid 1px #000;
+    background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(254,254,254,1) 71%, rgba(0,0,0,0.5522584033613445) 100%);
+}
+.bg-menu{
+    border-bottom: solid 1px #000;
+    background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(254,254,254,1) 71%, rgba(0,0,0,0.5522584033613445) 100%);
+}
