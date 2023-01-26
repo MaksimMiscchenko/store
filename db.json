@@ -9,31 +9,24 @@
   "product": [
     {
       "name": "Iphone X",
-      "price": "250 $",
+      "price": 250,
       "info": "Tyt KAkoito tixt s oshibkami",
       "id": 4,
       "img": "https://cdn.dxomark.com/wp-content/uploads/2018/07/apple_iphonex-1024x768.jpg"
     },
     {
-      "name": "Iphone 12",
-      "price": "600 $",
-      "info": "Tyt KAkoito tixt s oshibkami",
-      "id": 6,
-      "img": "https://cdn.dxomark.com/wp-content/uploads/medias/post-62960/iPhone-12-Hero.png"
+      "name": "Iphone 14 Pro",
+      "price": 1000,
+      "info": "KAAKAKAK",
+      "img": "https://login.kg/image/cache/catalog/new/Phones/Apple/iPhone%2014/Pro-Pro%20Max/1-500x500.jpg",
+      "id": 7
     },
     {
-      "name": "Iphone X",
-      "price": "250 $",
-      "info": "Tyt KAkoito tixt s oshibkami",
-      "id": 4,
-      "img": "https://cdn.dxomark.com/wp-content/uploads/2018/07/apple_iphonex-1024x768.jpg"
-    },
-    {
-      "name": "Iphone 12",
-      "price": "600 $",
-      "info": "Tyt KAkoito tixt s oshibkami",
-      "id": 6,
-      "img": "https://cdn.dxomark.com/wp-content/uploads/medias/post-62960/iPhone-12-Hero.png"
+      "name": "kkk",
+      "price": 777,
+      "info": "kkk",
+      "img": "kkk",
+      "id": 8
     }
   ]
 }

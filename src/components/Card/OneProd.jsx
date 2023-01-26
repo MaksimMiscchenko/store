@@ -8,9 +8,12 @@ import React from 'react';
 import { useContext } from 'react';
 import { productContext } from '../../Context/ProductContextProvider';
 import "./card.css"
+import { Link, useNavigate } from 'react-router-dom';
+
 
 
 export default function OneProd({ item}) {
+    const navigate = useNavigate()
     const {deleteProduct} = useContext(productContext);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -24,22 +27,26 @@ export default function OneProd({ item}) {
 
     return (
         <div>
+            
             <Card className="bg-cart">
+            
                 <CardMedia
                     component="img"
-                    alt="green iguana"
-                    height="100%"
+                    alt={item.name}
+                    height="300px"
+                    width="100%"
                     image={item.img}
-                    className="bg-cart"
+                    
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                         {item.name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        {item.price}
+                        {item.price} $
                     </Typography>
                 </CardContent>
+            
                 <CardActions  >
                 <IconButton
                 id="positioned-demo-button"
@@ -61,7 +68,7 @@ export default function OneProd({ item}) {
                 placement="bottom-end"
                 className='bg-menu'
             >
-                <MenuItem onClick={handleClose}>
+                <MenuItem onClick={() => navigate(`/edit/${item.id}`)}>
                     <ListItemDecorator>
                         <Edit />
                     </ListItemDecorator>{' '}

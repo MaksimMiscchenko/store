@@ -27,6 +27,7 @@ const navigate=useNavigate()
               <TextField label={'Поиск товаров'} id="margin-normal" margin="normal" />
             </Box>
             <Box >
+              <Button  color='inherit' variant='outlined'onClick={()=>navigate('/add')} >Добавить товар</Button>
               <Button color='inherit' variant='outlined' sx={{ marginRight: '30px' }}>Log in</Button>
               <Button color='inherit' variant='contained' >Sign up</Button>
             </Box>
