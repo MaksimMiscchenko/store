@@ -1,22 +1,35 @@
-import { Box, Button, Grid, TextField } from "@mui/material";
+import { Box, Button, Grid, MenuItem, TextField } from "@mui/material";
 import React, { useContext, useState } from "react";
 
-import {productContext} from '../../Context/ProductContextProvider';
-
-
+import { productContext } from "../../Context/ProductContextProvider";
 
 const AddCard = () => {
   const { addProduct } = useContext(productContext);
 
+  const currencies = [
+    {
+      value: "Iphone",
+      label: "Iphone",
+    },
+    {
+      value: "Samsung",
+      label: "Samsung",
+    },
+    {
+      value: "Xiaomi",
+      label: "Xiaomi",
+    },
+  ];
+
   const [newCard, setNewCard] = useState({
-    name: "",
-    price: '',
+    model: "",
+    price: "",
     info: "",
     img: "",
+    type: "",
   });
 
   const handleInp = (e) => {
-    
     if (e.target.name === "price") {
       let obj = { ...newCard, [e.target.name]: Number(e.target.value) };
       setNewCard(obj);
@@ -24,7 +37,6 @@ const AddCard = () => {
       let obj = { ...newCard, [e.target.name]: e.target.value };
       setNewCard(obj);
     }
-    
   };
 
   return (
@@ -37,14 +49,29 @@ const AddCard = () => {
           alignItems="center"
         >
           <TextField
+            id="outlined-select-currency"
+            select
+            label="Бренд"
+            sx={{ minWidth: 220 }}
+            name="type"
+            onChange={handleInp}
+          >
+            {currencies.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+          <TextField
             id="outlined-password-input"
-            name="name"
+            name="model"
             label="Модель"
             type="Disabled"
             autoComplete="current-password"
             margin="normal"
             onChange={handleInp}
           />
+
           <TextField
             id="outlined-password-input"
             label="Описание"
@@ -72,13 +99,14 @@ const AddCard = () => {
             name="img"
             onChange={handleInp}
           />
-          <Button onClick={() => {
-          addProduct(newCard);
-          
-        }}
-        variant="outlined">
-          Add
-        </Button>
+          <Button
+            onClick={() => {
+              addProduct(newCard);
+            }}
+            variant="outlined"
+          >
+            Add
+          </Button>
         </Grid>
       </Box>
     </div>

@@ -1,32 +1,84 @@
 {
-  "comments": [
+  "users": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "admin",
+      "password": "admin",
+      "id": 1
+    },
+    {
+      "name": "maksim",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "name": "vavilon",
+      "password": "123",
+      "id": 3
+    },
+    {
+      "name": "qwer",
+      "password": "123",
+      "id": 4
+    },
+    {
+      "name": "chpap",
+      "password": "123",
+      "id": 5
+    },
+    {
+      "name": "admin22",
+      "password": "admin",
+      "id": 6
     }
   ],
   "product": [
     {
-      "name": "Iphone X",
-      "price": 250,
-      "info": "Tyt KAkoito tixt s oshibkami",
-      "id": 4,
-      "img": "https://cdn.dxomark.com/wp-content/uploads/2018/07/apple_iphonex-1024x768.jpg"
-    },
-    {
-      "name": "Iphone 14 Pro",
+      "type": "Iphone",
+      "model": "14 Pro",
       "price": 1000,
       "info": "KAAKAKAK",
       "img": "https://login.kg/image/cache/catalog/new/Phones/Apple/iPhone%2014/Pro-Pro%20Max/1-500x500.jpg",
       "id": 7
     },
     {
-      "name": "kkk",
-      "price": 777,
-      "info": "kkk",
-      "img": "kkk",
-      "id": 8
+      "type": "Samsung",
+      "model": "A21",
+      "price": 500,
+      "info": "New",
+      "img": "https://object.pscloud.io/cms/cms/Photo/img_0_77_2798_8_1.jpg",
+      "id": 9
+    },
+    {
+      "model": "10",
+      "price": 200,
+      "info": "Xiaomi",
+      "img": "",
+      "type": "Xiaomi",
+      "id": 10
+    },
+    {
+      "model": " A 12",
+      "price": 500,
+      "info": "A 12",
+      "img": "",
+      "type": "Samsung",
+      "id": 11
+    },
+    {
+      "model": "Xr",
+      "price": 222,
+      "info": "что то написанно ",
+      "img": "22",
+      "type": "Iphone",
+      "id": 12
+    },
+    {
+      "model": "ww",
+      "price": 112312312,
+      "info": "ww",
+      "img": "",
+      "type": "Iphone",
+      "id": 13
     }
   ]
 }
