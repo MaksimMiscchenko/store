@@ -29,10 +29,16 @@ const style = {
 };
 
 export default function Auth() {
-  const { hasAccount, setHasAccount, handleSignUp, passwordError, loginError } =
-    useContext(authContext);
+  const {
+    hasAccount,
+    setHasAccount,
+    handleSignUp,
+    newPasswordError,
+    newLoginError,
+    checkUser,
+  } = useContext(authContext);
 
-  const [newUser, setNewUser] = useState({
+  const [user, setUser] = useState({
     name: "",
     password: "",
   });
@@ -49,9 +55,9 @@ export default function Auth() {
   };
 
   const handleInp = (e) => {
-    let obj = { ...newUser, [e.target.name]: e.target.value };
-    setNewUser(obj);
-    console.log(newUser);
+    let obj = { ...user, [e.target.name]: e.target.value };
+    setUser(obj);
+    console.log(user);
   };
 
   return (
@@ -69,8 +75,8 @@ export default function Auth() {
           <Box component="form">
             <Grid xs display="flex" flexDirection="column" alignItems="center">
               <FormControl>
-                <Typography id="modal-modal-title">Login</Typography>
-                {loginError ? (
+                <Typography id="modal-modal-title">Логин</Typography>
+                {newLoginError ? (
                   <TextField
                     required
                     autoComplete="email"
@@ -92,7 +98,7 @@ export default function Auth() {
                     name="name"
                   />
                 )}
-                {loginError ? (
+                {newLoginError ? (
                   <p className="input-hint">Придумайте логин</p>
                 ) : (
                   <></>
@@ -101,7 +107,7 @@ export default function Auth() {
                 <Typography id="modal-modal-description" sx={{ mt: 3 }}>
                   Пароль
                 </Typography>
-                {passwordError ? (
+                {newPasswordError ? (
                   <OutlinedInput
                     sx={{ mt: 1 }}
                     autoComplete="current-password"
@@ -144,14 +150,19 @@ export default function Auth() {
                     }
                   />
                 )}
-                {passwordError ? (
+                {newPasswordError ? (
                   <p className="input-hint">Придумайте пароль</p>
                 ) : (
                   <></>
                 )}
 
                 {hasAccount ? (
-                  <Button variant="outlined" size="large" sx={{ mt: 3 }}>
+                  <Button
+                    variant="outlined"
+                    size="large"
+                    sx={{ mt: 3 }}
+                    onClick={() => checkUser(user)}
+                  >
                     Войти
                   </Button>
                 ) : (
@@ -159,7 +170,7 @@ export default function Auth() {
                     variant="outlined"
                     size="large"
                     sx={{ mt: 3 }}
-                    onClick={() => handleSignUp(newUser)}
+                    onClick={() => handleSignUp(user)}
                   >
                     Зарегестрироваться
                   </Button>

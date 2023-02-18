@@ -29,14 +29,34 @@
       "name": "admin22",
       "password": "admin",
       "id": 6
+    },
+    {
+      "name": "Maks",
+      "password": "ssss",
+      "id": 10
+    },
+    {
+      "name": "chpapnc",
+      "password": "12345",
+      "id": 11
+    },
+    {
+      "name": "kk",
+      "password": "kk",
+      "id": 12
+    },
+    {
+      "name": "1234qwer",
+      "password": "1234qwer",
+      "id": 13
     }
   ],
   "product": [
     {
       "type": "Iphone",
-      "model": "14 Pro",
+      "model": "11",
       "price": 1000,
-      "info": "KAAKAKAK",
+      "info": "Pro",
       "img": "https://login.kg/image/cache/catalog/new/Phones/Apple/iPhone%2014/Pro-Pro%20Max/1-500x500.jpg",
       "id": 7
     },
@@ -44,7 +64,7 @@
       "type": "Samsung",
       "model": "A21",
       "price": 500,
-      "info": "New",
+      "info": "Информация о товаре",
       "img": "https://object.pscloud.io/cms/cms/Photo/img_0_77_2798_8_1.jpg",
       "id": 9
     },
@@ -55,22 +75,6 @@
       "img": "",
       "type": "Xiaomi",
       "id": 10
-    },
-    {
-      "model": " A 12",
-      "price": 500,
-      "info": "A 12",
-      "img": "",
-      "type": "Samsung",
-      "id": 11
-    },
-    {
-      "model": "Xr",
-      "price": 222,
-      "info": "что то написанно ",
-      "img": "22",
-      "type": "Iphone",
-      "id": 12
     },
     {
       "model": "ww",

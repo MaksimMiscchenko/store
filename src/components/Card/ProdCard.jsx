@@ -5,7 +5,6 @@ import { productContext } from "../../Context/ProductContextProvider";
 import { Container } from "@mui/system";
 import OneProd from "./OneProd";
 import {
-  Box,
   FormControl,
   FormControlLabel,
   FormLabel,
@@ -19,7 +18,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 
-export default function ProdCard(props) {
+export default function ProdCard() {
   const { getProducts, products, fetchByParams } = useContext(productContext);
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -39,7 +38,6 @@ export default function ProdCard(props) {
     setSearchParams({
       q: search,
     });
-    console.log(searchParams.toString());
   }, [search]);
 
   function currentData() {

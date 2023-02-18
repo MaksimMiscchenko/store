@@ -12,6 +12,7 @@
 .bg-menu {
   border-bottom: solid 2px #000;
 
+  height: 150px;
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 1) 0%,

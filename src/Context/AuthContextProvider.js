@@ -1,47 +1,78 @@
 import axios from "axios";
-
+import { USERS_API } from "./helpers";
 import { useState } from "react";
 import { createContext } from "react";
 
 export const authContext = createContext();
-const USER_API = "http://localhost:8000/users";
 
 const AuthContextProvider = ({ children }) => {
-  const [hasAccount, setHasAccount] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
-  const [loginError, setLoginError] = useState(false);
+  const [hasAccount, setHasAccount] = useState(true);
+  const [newPasswordError, setNewPasswordError] = useState(false);
+  const [newLoginError, setNewLoginError] = useState(false);
+  const [userIsLoggedIn, setUserLoggedIn] = useState(true);
 
   const handleSignUp = async (newUser) => {
-    const arr = await axios.get(USER_API);
+    const arr = await axios.get(USERS_API);
     for (const key in arr.data) {
       const element = arr.data[key].name;
       if (newUser.name == element) {
         alert("Такой пользователь уже зарегестрирован");
-        newUser = {
-          name: "",
-        };
+        return false;
       }
-      break;
     }
     if (newUser.name == "" && newUser.password == "") {
-      setLoginError(true);
-      setPasswordError(true);
+      setNewLoginError(true);
+      setNewPasswordError(true);
     } else if (newUser.password == "") {
-      setPasswordError(true);
+      setNewPasswordError(true);
     } else if (newUser.name == "") {
-      setLoginError(true);
+      setNewLoginError(true);
+    } else if (newUser.name.length < 4 || newUser.password.length < 4) {
+      alert("Логин и пароль должны быть больше 4 символов");
     } else {
-      const res = await axios.post(USER_API, newUser);
+      const res = await axios.post(USERS_API, newUser);
+      handleSignIn();
     }
   };
 
+  const handleSignIn = async () => {
+    setUserLoggedIn(true);
+  };
+
+  const checkUser = async (user) => {
+    try {
+      const res = await axios.get(USERS_API);
+      for (const value of res.data) {
+        if (user.name == value.name && user.password == value.password) {
+          handleSignIn();
+          break;
+        } else {
+          console.log("error");
+        }
+      }
+
+      return res.data;
+    } catch (err) {
+      if (err.response.status === 404) {
+        return null;
+      }
+      throw err;
+    }
+  };
+
+  const handleLogOut = () => {
+    setUserLoggedIn(false);
+  };
   let value = {
     hasAccount,
     setHasAccount,
     handleSignUp,
-    setPasswordError,
-    passwordError,
-    loginError,
+    setNewPasswordError,
+    newPasswordError,
+    newLoginError,
+    checkUser,
+    userIsLoggedIn,
+    handleLogOut,
   };
   return <authContext.Provider value={value}>{children}</authContext.Provider>;
 };

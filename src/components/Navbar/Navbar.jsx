@@ -5,17 +5,21 @@ import {
   Toolbar,
   Typography,
   Box,
-  TextField,
 } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
 
 import StoreIcon from "@mui/icons-material/Store";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Auth from "../Admin/Auth";
+import { Badge } from "@mui/material";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { authContext } from "../../Context/AuthContextProvider";
+import { useContext } from "react";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const { userIsLoggedIn, handleLogOut } = useContext(authContext);
 
   return (
     <div>
@@ -31,18 +35,43 @@ const Navbar = () => {
               <StoreIcon fontSize="large" />
               <Typography variant="h5">Store</Typography>
             </IconButton>
+
             <Box>
+              {userIsLoggedIn ? (
+                <Button
+                  color="inherit"
+                  variant="outlined"
+                  onClick={() => navigate("/add")}
+                >
+                  Добавить товар
+                </Button>
+              ) : (
+                <></>
+              )}
+            </Box>
+
+            <Link to="/cart">
+              {userIsLoggedIn ? (
+                <Button sx={{ color: "white" }}>
+                  <Badge /*badgeContent={count}*/ color="error">
+                    <ShoppingCartIcon />
+                  </Badge>
+                </Button>
+              ) : (
+                <></>
+              )}
+            </Link>
+            {userIsLoggedIn ? (
               <Button
                 color="inherit"
                 variant="outlined"
-                onClick={() => navigate("/add")}
+                onClick={() => handleLogOut()}
               >
-                Добавить товар
+                Выйти
               </Button>
-              {/* <Button color='inherit' variant='outlined' sx={{ marginRight: '30px' }}>Log in</Button>
-              <Button color='inherit' variant='contained' >Sign up</Button> */}
-            </Box>
-            <Auth />
+            ) : (
+              <Auth />
+            )}
           </Toolbar>
         </Container>
       </AppBar>

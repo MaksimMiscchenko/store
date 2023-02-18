@@ -6,15 +6,18 @@ import Home from "./pages/Home";
 import ProductContextProvider from "./Context/ProductContextProvider";
 import PagesRoute from "./PagesRoute";
 import AuthContextProvider from "./Context/AuthContextProvider";
+import CartContextProvider from "./Context/CartContextProvider";
 
 function App() {
   return (
     <div className="App">
       <AuthContextProvider>
-        <ProductContextProvider>
-          <Navbar />
-          <PagesRoute />
-        </ProductContextProvider>
+        <CartContextProvider>
+          <ProductContextProvider>
+            <Navbar />
+            <PagesRoute />
+          </ProductContextProvider>
+        </CartContextProvider>
       </AuthContextProvider>
     </div>
   );
