@@ -9,13 +9,13 @@ const AuthContextProvider = ({ children }) => {
   const [hasAccount, setHasAccount] = useState(true);
   const [newPasswordError, setNewPasswordError] = useState(false);
   const [newLoginError, setNewLoginError] = useState(false);
-  const [userIsLoggedIn, setUserLoggedIn] = useState(true);
+  const [userIsLoggedIn, setUserLoggedIn] = useState(false);
 
   const handleSignUp = async (newUser) => {
     const arr = await axios.get(USERS_API);
     for (const key in arr.data) {
       const element = arr.data[key].name;
-      if (newUser.name == element) {
+      if (newUser.name.toLowerCase() == element.toLowerCase()) {
         alert("Такой пользователь уже зарегестрирован");
         return false;
       }
@@ -43,7 +43,10 @@ const AuthContextProvider = ({ children }) => {
     try {
       const res = await axios.get(USERS_API);
       for (const value of res.data) {
-        if (user.name == value.name && user.password == value.password) {
+        if (
+          user.name.toLowerCase() == value.name.toLowerCase() &&
+          user.password == value.password
+        ) {
           handleSignIn();
           break;
         } else {

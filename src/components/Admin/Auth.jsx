@@ -55,7 +55,7 @@ export default function Auth() {
   };
 
   const handleInp = (e) => {
-    let obj = { ...user, [e.target.name]: e.target.value };
+    let obj = { ...user, [e.target.name]: e.target.value.trim() };
     setUser(obj);
     console.log(user);
   };

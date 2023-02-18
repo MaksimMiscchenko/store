@@ -16,7 +16,7 @@ const PagesRoute = () => {
   return (
     <Routes>
       {allRoutes.map((item) => (
-        <Route path={item.link} element={item.element} id={item.id} />
+        <Route path={item.link} element={item.element} key={item.id} />
       ))}
     </Routes>
   );

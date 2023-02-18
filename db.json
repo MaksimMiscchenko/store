@@ -54,7 +54,7 @@
   "product": [
     {
       "type": "Iphone",
-      "model": "11",
+      "model": "11 Pro",
       "price": 1000,
       "info": "Pro",
       "img": "https://login.kg/image/cache/catalog/new/Phones/Apple/iPhone%2014/Pro-Pro%20Max/1-500x500.jpg",
@@ -77,12 +77,20 @@
       "id": 10
     },
     {
-      "model": "ww",
-      "price": 112312312,
-      "info": "ww",
+      "model": "Xs",
+      "price": 190,
+      "info": "Xs",
       "img": "",
       "type": "Iphone",
       "id": 13
+    },
+    {
+      "model": "12 mini",
+      "price": 400,
+      "info": "Mini",
+      "img": "wqewq",
+      "type": "Iphone",
+      "id": 14
     }
   ]
 }

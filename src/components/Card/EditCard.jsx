@@ -1,14 +1,14 @@
 import React, { useContext, useState } from "react";
 import { Box, Button, Grid, TextField } from "@mui/material";
 import { productContext } from "../../Context/ProductContextProvider";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 const EditCard = () => {
   const { productDetails, getProductDetails, saveEdit } =
     useContext(productContext);
   const params = useParams();
-  const navigate = useNavigate();
+
   const [product, setProduct] = useState(productDetails);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const EditCard = () => {
       let obj = { ...product, [e.target.name]: Number(e.target.value) };
       setProduct(obj);
     } else {
-      let obj = { ...product, [e.target.name]: e.target.value };
+      let obj = { ...product, [e.target.name]: e.target.value.trim() };
       setProduct(obj);
     }
   };
@@ -87,7 +87,6 @@ const EditCard = () => {
           <Button
             onClick={() => {
               saveEdit(product, params.id);
-              navigate("/");
             }}
             variant="outlined"
           >

@@ -45,7 +45,12 @@ const ProductContextProvider = ({ children }) => {
   };
 
   const addProduct = async (newCard) => {
-    if (newCard.name === "" || newCard.info === "" || newCard.price === "") {
+    if (
+      newCard.type.trim() === "" ||
+      newCard.model.trim() === "" ||
+      newCard.info.trim() === "" ||
+      newCard.price === ""
+    ) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -66,8 +71,17 @@ const ProductContextProvider = ({ children }) => {
   };
 
   const saveEdit = async (product, id) => {
-    await axios.patch(`${API}/${id}`, product);
-    getProducts();
+    if (product.model === "" || product.info === "" || product.price === "") {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Заполните все поля!!!",
+      });
+    } else {
+      await axios.patch(`${API}/${id}`, product);
+      getProducts();
+      navigate("/");
+    }
   };
   const fetchByParams = async (query, value) => {
     const search = new URLSearchParams(location.search);

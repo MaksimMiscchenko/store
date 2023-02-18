@@ -86,7 +86,7 @@ export default function OneProd({ item }) {
               <MenuItem
                 onClick={() => {
                   addProductToCart(item);
-                  handleClose();
+                  handleClose(``);
                 }}
                 variant="soft"
                 color="danger"
